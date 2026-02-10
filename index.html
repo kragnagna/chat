@@ -3,257 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MIX Intranet - Terminal Classifié</title>
+  <title>Nebula Forge — Site Incroyable</title>
+  <meta name="description" content="Un site ultra visuel, interactif et prêt à télécharger." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="scanlines"></div>
-  <div class="app">
-    <aside class="sidebar" id="sidebar">
-      <div class="brand">
-        <span class="brand__sigil">MIX</span>
-        <span class="brand__name">Intranet Classifié</span>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="logo">Nebula <span>Forge</span></div>
+    <nav>
+      <a href="#features">Expériences</a>
+      <a href="#showcase">Showcase</a>
+      <a href="#builder">Builder</a>
+    </nav>
+    <button id="downloadBtn" class="btn btn--small">Télécharger le site</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Projet prêt à l'emploi</p>
+      <h1>Un site <span>incroyable</span>, immersif et téléchargeable en un clic.</h1>
+      <p class="subtitle">Animations fluides, design premium, interactions futuristes, et un générateur de thème pour personnaliser ton style.</p>
+      <div class="hero__actions">
+        <a class="btn" href="#builder">Créer ma version</a>
+        <button id="surpriseBtn" class="btn btn--ghost">Mode WOW ⚡</button>
       </div>
-      <nav class="nav">
-        <button class="nav__item" data-section="dashboard">Centre de Commande</button>
-        <button class="nav__item" data-section="oracle">Oracle Intel</button>
-        <button class="nav__item" data-section="signal">Signal Archives</button>
-        <button class="nav__item" data-section="control">Control / Briefings</button>
-        <button class="nav__item" data-section="reports">Rapports</button>
-        <button class="nav__item" data-section="admin">Administration</button>
-        <button class="nav__item" data-section="sync">Sync</button>
-        <button class="nav__item" data-section="notes">Bloc-notes</button>
-      </nav>
-      <div class="sidebar__footer">
-        <div class="timer" id="sessionTimer">10:00</div>
-        <button class="logout" id="logoutBtn">Déconnexion</button>
+      <div class="stats">
+        <article><strong>120 FPS</strong><span>Animation optimisée</span></article>
+        <article><strong>100%</strong><span>HTML/CSS/JS pur</span></article>
+        <article><strong>1 clic</strong><span>Export en .zip</span></article>
       </div>
-    </aside>
+    </section>
 
-    <header class="mobile-header">
-      <button class="drawer" id="drawerToggle">☰</button>
-      <div>
-        <div class="brand__sigil">MIX</div>
-        <div class="brand__name">Terminal Classifié</div>
+    <section id="features" class="features">
+      <article class="glass card glow"><h3>Design cinématique</h3><p>Dégradés dynamiques, lumière volumétrique, profondeur et micro-animations élégantes.</p></article>
+      <article class="glass card"><h3>Interactions vivantes</h3><p>Effets hover, reveal au scroll, particules réactives, et transitions ultra douces.</p></article>
+      <article class="glass card"><h3>Export instantané</h3><p>Le bouton de téléchargement génère un .zip avec tous les fichiers de ton site.</p></article>
+    </section>
+
+    <section id="showcase" class="showcase glass">
+      <h2>Galerie de vibes</h2>
+      <div class="showcase__grid">
+        <div class="tile" data-tilt>
+          <h4>Neon Pulse</h4>
+          <p>Ambiance cyber & lumière énergique.</p>
+        </div>
+        <div class="tile" data-tilt>
+          <h4>Midnight Aurora</h4>
+          <p>Gradient cosmique + brume colorée.</p>
+        </div>
+        <div class="tile" data-tilt>
+          <h4>Prism Flow</h4>
+          <p>Reflets spectrum & ombres profondes.</p>
+        </div>
       </div>
-      <div class="timer" id="mobileTimer">10:00</div>
-    </header>
+    </section>
 
-    <main class="content">
-      <section id="login" class="panel active">
-        <div class="login">
-          <h1>Portail de Décryptage</h1>
-          <p>Identifiez-vous pour ouvrir le terminal sécurisé MIX.</p>
-          <form id="loginForm">
-            <label>
-              ID Agent
-              <input type="text" id="agentId" placeholder="CHIEF-01" required />
-            </label>
-            <label>
-              Clé d'accès
-              <input type="password" id="accessKey" placeholder="••••••" required />
-            </label>
-            <button type="submit">Déverrouiller</button>
-          </form>
-        </div>
-      </section>
+    <section id="builder" class="builder">
+      <h2>Theme Builder</h2>
+      <p>Personnalise instantanément le look du site.</p>
+      <div class="builder__controls glass">
+        <label>Couleur primaire <input type="color" id="primary" value="#7c5cff" /></label>
+        <label>Couleur secondaire <input type="color" id="secondary" value="#00e0ff" /></label>
+        <label>Intensité glow <input type="range" id="glow" min="0" max="100" value="60" /></label>
+      </div>
+      <p id="status" class="status">Thème prêt. Tu peux télécharger ton site.</p>
+    </section>
+  </main>
 
-      <section id="protocol" class="panel">
-        <div class="protocol">
-          <h2>Protocole 7 · Mur du Règlement</h2>
-          <p>
-            Accès restreint. Vous devez lire les instructions sécurisées suivantes avant
-            d'entrer dans l'intranet.
-          </p>
-          <ul>
-            <li>Ne jamais exporter des données sans chiffrement.</li>
-            <li>Maintenir la session active uniquement en environnement sécurisé.</li>
-            <li>Signaler toute activité hostile au Commandant.</li>
-          </ul>
-          <button id="acceptProtocol">J'ACCEPTE LES PROTOCOLES SÉCURISÉS</button>
-        </div>
-      </section>
+  <footer>
+    Construit avec passion · <span id="year"></span> · Nebula Forge
+  </footer>
 
-      <section id="dashboard" class="panel">
-        <div class="panel__header">
-          <h2>Centre de Commande</h2>
-          <div class="code" id="codeOfDay"></div>
-        </div>
-        <div class="grid">
-          <div class="card map">
-            <h3>Carte de Déploiement Global</h3>
-            <div class="map__container">
-              <svg viewBox="0 0 800 400" aria-hidden="true">
-                <path d="M30 200 L150 120 L260 160 L320 110 L400 160 L520 140 L620 170 L700 130 L770 180" />
-                <circle class="pulse active" cx="190" cy="150" r="6" />
-                <circle class="pulse active" cx="430" cy="180" r="6" />
-                <circle class="pulse success" cx="620" cy="160" r="6" />
-                <circle class="pulse success" cx="300" cy="210" r="6" />
-              </svg>
-            </div>
-          </div>
-          <div class="card">
-            <h3>Journal de Flux</h3>
-            <ul class="log" id="activityLog"></ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="oracle" class="panel">
-        <div class="panel__header">
-          <h2>Intelligence Database 2.0 · Oracle</h2>
-          <div class="badge">Propulsé par Gemini</div>
-        </div>
-        <div class="grid">
-          <div class="card">
-            <h3>Fiche d'identité</h3>
-            <form id="intelForm">
-              <input type="text" id="intelName" placeholder="Nom de code" required />
-              <input type="text" id="intelAllegiance" placeholder="Allégeance" required />
-              <select id="intelThreat">
-                <option>Faible</option>
-                <option>Modéré</option>
-                <option>Élevé</option>
-                <option>Critique</option>
-              </select>
-              <input type="text" id="intelLocation" placeholder="Localisation" required />
-              <textarea id="intelNotes" placeholder="Notes de terrain"></textarea>
-              <button type="submit">Enregistrer</button>
-            </form>
-          </div>
-          <div class="card">
-            <h3>Recherche augmentée</h3>
-            <input type="text" id="oracleQuery" placeholder="Questionner Oracle" />
-            <button id="oracleAsk">Interroger</button>
-            <div class="oracle__response" id="oracleResponse"></div>
-            <div class="intel__list" id="intelList"></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="signal" class="panel">
-        <div class="panel__header">
-          <h2>Signal Archives</h2>
-          <div class="members" id="channelMembers"></div>
-        </div>
-        <div class="grid">
-          <div class="card">
-            <h3>Canaux</h3>
-            <div class="channel__list" id="channelList"></div>
-            <label class="toggle">
-              <input type="checkbox" id="commanderToggle" />
-              Commandant
-            </label>
-            <button class="danger" id="dissolveChannel">DISSOUDRE</button>
-          </div>
-          <div class="card chat">
-            <div class="chat__log" id="chatLog"></div>
-            <form id="chatForm">
-              <input type="text" id="chatInput" placeholder="Message sécurisé" required />
-              <button type="submit">Envoyer</button>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      <section id="control" class="panel">
-        <div class="panel__header">
-          <h2>Control · Briefings IA</h2>
-        </div>
-        <div class="grid">
-          <div class="card">
-            <h3>Générer un briefing</h3>
-            <form id="briefingForm">
-              <input type="text" id="missionName" placeholder="Mission" required />
-              <input type="text" id="missionRegion" placeholder="Zone géographique" required />
-              <textarea id="missionObjective" placeholder="Objectifs"></textarea>
-              <button type="submit">Générer</button>
-            </form>
-          </div>
-          <div class="card">
-            <h3>Briefing tactique</h3>
-            <div class="briefing" id="briefingOutput"></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="reports" class="panel">
-        <div class="panel__header">
-          <h2>Flux de Rapports</h2>
-        </div>
-        <div class="grid">
-          <div class="card">
-            <h3>Rédiger un rapport</h3>
-            <form id="reportForm">
-              <input type="text" id="reportMission" placeholder="Mission" required />
-              <textarea id="reportContent" placeholder="Synthèse"></textarea>
-              <button type="submit">Envoyer</button>
-            </form>
-          </div>
-          <div class="card">
-            <h3>Rapports archivés</h3>
-            <div id="reportList"></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="admin" class="panel">
-        <div class="panel__header">
-          <h2>Administration & Recrutement</h2>
-        </div>
-        <div class="grid">
-          <div class="card">
-            <h3>Ajouter un agent</h3>
-            <form id="agentForm">
-              <input type="text" id="agentName" placeholder="Nom" required />
-              <select id="agentStatus">
-                <option>Actif</option>
-                <option>En Mission</option>
-                <option>Bloqué</option>
-              </select>
-              <button type="submit">Ajouter</button>
-            </form>
-          </div>
-          <div class="card">
-            <h3>Roster</h3>
-            <div id="agentList"></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="sync" class="panel">
-        <div class="panel__header">
-          <h2>Porte-documents Numérique</h2>
-        </div>
-        <div class="grid">
-          <div class="card">
-            <h3>Export JSON</h3>
-            <button id="exportBtn">Exporter la base locale</button>
-            <div class="hint">Le fichier est chiffré avec une clé locale.</div>
-          </div>
-          <div class="card">
-            <h3>Import JSON</h3>
-            <input type="file" id="importFile" accept="application/json" />
-            <div class="hint">Importer pour synchroniser l'historique.</div>
-          </div>
-        </div>
-      </section>
-
-      <section id="notes" class="panel">
-        <div class="panel__header">
-          <h2>Bloc-notes Personnel</h2>
-        </div>
-        <div class="card">
-          <textarea id="personalNotes" placeholder="Notes locales..."></textarea>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <audio id="audioBeep"></audio>
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
